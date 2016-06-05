@@ -5,6 +5,7 @@
 1.导入#import "LZBFocusScrollView.h"
 
 2.实例化LZBFocusScrollView
+
 /**
  *  实例化LZBFocusScrollView
  *
@@ -36,4 +37,14 @@ placeHoderImage：可选参数，设置占位图片
 
 clickImage：可选参数。轮播图点击参数
 
+delegate: 可选参数。轮播图点击参数
+
+#实现原理
+设置scrollViewContentSize的滚动范围是5 * scrollView_Width并且把currentImageView增加到scrollView中，并且设置currentImageView的offset.x = scrollView_Width(相当于是把currentImageView放在中间位置)，让后通过- (void)scrollViewDidScroll:(UIScrollView *)的scrollView.contentOffset.x判断滚动方向
+scrollView.contentOffset.x  < scrollView_Width * 2 左边滚动  otherImageView增加在右边
+scrollView.contentOffset.x  > scrollView_Width * 2 右边滚动  otherImageView增加在左边
+滚动otherImageView之后，赋值并且设置 self.currentImageView.image = self.otherImageView.image;，在把currentView放在中间 self.scrollView.contentOffset = CGPointMake(scrollView_Width * 2, 0);
+
+#备注
+本文原始连接：https://github.com/codingZero/XRCarouselView 
 
