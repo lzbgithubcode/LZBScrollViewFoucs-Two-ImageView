@@ -46,5 +46,5 @@ scrollView.contentOffset.x  > scrollView_Width * 2 右边滚动  otherImageView�
 滚动otherImageView之后，赋值并且设置 self.currentImageView.image = self.otherImageView.image;，在把currentView放在中间 self.scrollView.contentOffset = CGPointMake(scrollView_Width * 2, 0);
 
 #备注
-本文原始连接：https://github.com/codingZero/XRCarouselView 
+本文参照连接：https://github.com/codingZero/XRCarouselView 
 
